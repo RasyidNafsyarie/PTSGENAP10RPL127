@@ -36,6 +36,10 @@ public class Page2 extends AppCompatActivity {
                     Toast.makeText(Page2.this, "Toast", Toast.LENGTH_SHORT).show();
                 }
 
+                Intent intent = new Intent(Page2.this, DashboardMenu.class);
+                startActivity(intent);
+
+
             }
         });
 
