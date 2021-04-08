@@ -32,13 +32,14 @@ public class Page2 extends AppCompatActivity {
                 if (password.equalsIgnoreCase("12345")) {
                     Toast.makeText(Page2.this, "Sukses Login", Toast.LENGTH_SHORT).show();
 
+
+
                 }else {
                     Toast.makeText(Page2.this, "Toast", Toast.LENGTH_SHORT).show();
                 }
 
                 Intent intent = new Intent(Page2.this, DashboardMenu.class);
                 startActivity(intent);
-
 
             }
         });

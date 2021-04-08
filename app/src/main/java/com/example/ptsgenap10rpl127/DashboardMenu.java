@@ -10,33 +10,58 @@ import java.util.ArrayList;
 
 public class DashboardMenu extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private MahasiswaAdapter adapter;
-    private ArrayList<Mahasiswa> mahasiswaArrayList;
-    // we user ArrayList to populate data in RecyclerView
+    RecyclerView mRecyclerView;
+    MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_menu);
-        recyclerView = (RecyclerView) findViewById(R.id.rvdata);
 
-        addData();
 
-        adapter = new MahasiswaAdapter(mahasiswaArrayList);
-        //selesai ngatur data dari adapter, kemudian di tempel ke Recyclerview nya
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(DashboardMenu.this);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        myAdapter = new MyAdapter(this, getMyList());
+        mRecyclerView.setAdapter(myAdapter);
     }
 
-    void addData(){
-        mahasiswaArrayList = new ArrayList<>();
-        mahasiswaArrayList.add(new Mahasiswa("Rama", "555", "081111","rama@gmail.com"));
-        mahasiswaArrayList.add(new Mahasiswa("Budi", "000", "081222", "budi@gmail.com"));
-        mahasiswaArrayList.add(new Mahasiswa("Yanto", "123", "083333", "yanto@gmail.com"));
-//        Mahasiswa Sari = new Mahasiswa("Sari", "xxx" , "000", "sari@gmail.com");
-//        mahasiswaArrayList.add(Sari);
+
+    private ArrayList<Model> getMyList() {
+
+        ArrayList<Model> models = new ArrayList<>();
+
+        Model m = new Model();
+        m.setTitle("newsfeed");
+        m.setDescription("This is newsfeed description..");
+        m.setImg(R.drawable.newsfeed);
+        models.add(m);
+
+        m = new Model();
+        m.setTitle("feedback");
+        m.setDescription("This is business description..");
+        m.setImg(R.drawable.feedback);
+        models.add(m);
+
+        m = new Model();
+        m.setTitle("notes");
+        m.setDescription("This is notes description..");
+        m.setImg(R.drawable.notes);
+        models.add(m);
+
+        m = new Model();
+        m.setTitle("people");
+        m.setDescription("This is people description..");
+        m.setImg(R.drawable.people);
+        models.add(m);
+
+        m = new Model();
+        m.setTitle("business");
+        m.setDescription("This is business description..");
+        m.setImg(R.drawable.business);
+        models.add(m);
+
+        return models;
+
     }
 }
